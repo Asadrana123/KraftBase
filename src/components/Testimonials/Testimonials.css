@@ -1,4 +1,6 @@
-
+.testimonials{
+   padding-bottom: 10px;
+}
 .testimonials__head {
   text-align: center;
   max-width: 640px;
