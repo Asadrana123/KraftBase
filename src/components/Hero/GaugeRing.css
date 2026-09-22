@@ -1,0 +1,36 @@
+.gauge {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.gauge__progress {
+  animation: gauge-fill 1.2s var(--ease) both;
+}
+
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: var(--circ, 320);
+  }
+}
+
+.gauge__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.gauge__flame {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.gauge__value {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-heading);
+}

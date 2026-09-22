@@ -1,0 +1,85 @@
+/* ============================================================
+   Design tokens — values taken directly from the Figma
+   Inspect panel (Collectedge). Single source of truth for
+   color, type, spacing and radius across the whole page.
+   ============================================================ */
+
+:root {
+  /* ---- Brand / accent colors ---- */
+  --color-primary: #1952f1;        /* primary blue (buttons, links)      */
+  --color-primary-strong: #1948bd; /* darker blue (eyebrow, emphasis)    */
+  --color-accent: #418df8;         /* lighter blue accent                */
+
+  /* Primary button gradient (from the "Get in touch" / "Get free Trial" nodes) */
+  --gradient-primary: linear-gradient(180deg, #418df8 0%, #1952f1 100%);
+
+  /* ---- Text ---- */
+  --color-heading: #020218;        /* near-black headings                */
+  --color-body: #4b5563;           /* muted body copy                    */
+  --color-body-soft: #6b7280;      /* secondary/support text             */
+  --color-white: #ffffff;
+
+  /* ---- Surfaces ---- */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f5f8ff;        /* pale blue section wash             */
+  --color-card: #ffffff;
+  --color-border: #e5eaf2;         /* hairline card borders              */
+
+  /* ---- Typography ---- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* Type scale (desktop). Hero from inspect: 54px / lh 74px / ls -5% */
+  --fs-hero: 54px;
+  --fs-h2: 40px;
+  --fs-h3: 24px;
+  --fs-lead: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+
+  --lh-hero: 1.1;
+  --lh-heading: 1.2;
+  --lh-body: 1.6;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---- Radius ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;   /* button radius from inspect */
+  --radius-xl: 24px;
+  --radius-card: 20px;
+
+  /* ---- Layout ---- */
+  --container-max: 1200px;
+  --container-pad: 24px;
+
+  /* ---- Elevation ---- */
+  --shadow-card: 0 8px 30px rgba(16, 42, 100, 0.08);
+  --shadow-float: 0 20px 50px rgba(16, 42, 100, 0.12);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 200ms;
+}
+
+/* Responsive type down-scale */
+@media (max-width: 1024px) {
+  :root {
+    --fs-hero: 44px;
+    --fs-h2: 34px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --fs-hero: 32px;
+    --fs-h2: 26px;
+    --fs-h3: 20px;
+    --fs-lead: 16px;
+    --container-pad: 18px;
+  }
+}

@@ -1,0 +1,22 @@
+.semi {
+  position: relative;
+  margin-inline: auto;
+}
+.semi__arc {
+  animation: semi-fill 1.3s var(--ease) both;
+}
+@keyframes semi-fill {
+  from { stroke-dashoffset: var(--arc, 320); }
+}
+.semi__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+}
+.semi__value {
+  font-size: 30px;
+  font-weight: var(--fw-bold);
+  color: var(--color-heading);
+}

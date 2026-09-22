@@ -1,0 +1,14 @@
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #fff;
+}
+
+.avatar--initials {
+  font-weight: var(--fw-semibold);
+  color: #1e293b;
+}

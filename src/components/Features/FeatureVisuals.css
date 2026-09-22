@@ -1,0 +1,122 @@
+.fvisual {
+  position: relative;
+  background: linear-gradient(160deg, #f3f7ff 0%, #fafcff 100%);
+  border: 1px solid #eaf0fb;
+  border-radius: var(--radius-card);
+  min-height: 300px;
+  padding: 28px;
+  overflow: hidden;
+}
+
+/* ---- Contacts stack ---- */
+.fvisual--contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #eef2fa;
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 20px rgba(16, 42, 100, 0.06);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+/* stagger like Figma */
+.contact-row--0 { width: 78%; align-self: flex-start; }
+.contact-row--1 { width: 82%; align-self: center; margin-left: 12%; }
+.contact-row--2 { width: 70%; align-self: flex-start; margin-left: 6%; }
+
+.contact-row:hover {
+  transform: translateX(4px);
+  box-shadow: 0 12px 26px rgba(16, 42, 100, 0.12);
+}
+
+.contact-row__name {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-heading);
+}
+.contact-row__loc { font-size: 11px; color: var(--color-body-soft); }
+
+.fvisual__peek {
+  position: absolute;
+  right: 26px;
+  bottom: 20px;
+}
+.fvisual__peek .avatar {
+  border: 3px solid #ffd98a;
+}
+
+/* ---- Node diagram ---- */
+.fvisual--nodes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.nodes__diagram {
+  position: relative;
+  width: 260px;
+  height: 180px;
+}
+
+.nodes__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.node {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid #eaf0fb;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(16, 42, 100, 0.08);
+  transition: transform var(--dur) var(--ease);
+}
+.node:hover { transform: scale(1.08); }
+
+.node--hub {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 24px rgba(25, 82, 241, 0.18);
+  z-index: 2;
+}
+.node--hub:hover { transform: translate(-50%, -50%) scale(1.08); }
+
+.node--tl { left: 14px;  top: 22px; }
+.node--tr { right: 14px; top: 22px; }
+.node--bl { left: 14px;  bottom: 22px; }
+.node--br { right: 14px; bottom: 22px; }
+
+.nodes__pill {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  padding: 10px 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(25, 82, 241, 0.3);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.nodes__pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(25, 82, 241, 0.4);
+}

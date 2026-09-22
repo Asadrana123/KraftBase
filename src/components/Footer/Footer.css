@@ -1,0 +1,348 @@
+.footer {
+  position: relative;
+  background: #fff;
+}
+
+/* ---- CTA banner ---- */
+.footer__stage {
+  position: relative;
+  overflow: visible;
+  /* icons are meant to hang past the arch's edge */
+  padding-top: 20px;
+}
+
+/* The arched panel itself: a plain rectangle whose bottom edge is masked
+   into a smooth concave curve with clip-path. With the ellipse centered
+   at the TOP (50% 0%) and ry: 100%, the panel is always flush with the
+   very top of the section (no gap there) at every x — only the BOTTOM
+   edge moves, and it is mathematically deepest at the center, shallowest
+   at the edges: a bowl / inverted-arch profile, not a dome. rx must be
+   well under 50% width for that dip to actually read as a curve instead
+   of a barely-there wobble — 55% pinches the sides up to ~40% height. */
+.footer__arch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 480px;
+  background: linear-gradient(180deg, #dce8ff 0%, #eaf1ff 45%, #f7faff 78%, #ffffff 100%);
+  clip-path: ellipse(46% 102% at 50% 126%);
+  z-index: 0;
+  pointer-events: none;
+  animation: arch-breathe 6s ease-in-out infinite;
+}
+
+@keyframes arch-breathe {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.footer__cta {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: 70px 60px;
+  animation: footer-rise 0.7s var(--ease) both;
+}
+
+@keyframes footer-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.footer__badge {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  margin-inline: auto;
+  margin-bottom: 22px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(16, 42, 100, 0.14);
+}
+
+.footer__badge svg {
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  padding: 14px;
+  box-sizing: content-box;
+}
+
+.footer__title {
+  font-size: var(--fs-h2);
+  line-height: 1.28;
+  font-weight: var(--fw-bold);
+  color: #020218;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+}
+
+.footer__title-accent {
+  color: #1948bd;
+}
+
+.footer__subtitle {
+  margin: 20px auto 0;
+  max-width: 460px;
+  font-size: var(--fs-body);
+  color: #6d6d6d;
+}
+
+.footer__cta-btn {
+  margin-top: 26px;
+  min-height: 56px;
+  padding-inline: 30px;
+}
+
+/* ---- Decorative icons ---- */
+/* Siblings of .footer__arch, not children — so the arch's clip-path
+   doesn't clip them too. Positioned in the SAME 0–480px coordinate space
+   as the arch's own (unclipped) rectangle: the "inside" pair sits well
+   above the curve at their x; the "straddling" pair sits with its
+   vertical center right at the curve's height near the edges, so half
+   the badge renders over the colour and half over the plain white below. */
+.footer__deco {
+  position: absolute;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(16, 42, 100, 0.12);
+  animation: footer-float 6s ease-in-out infinite;
+}
+
+@keyframes footer-float {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+/* fully inside the arch */
+.footer__deco--instagram {
+  top: 39%;
+  left: 19%;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #f9ce34, #ee2a7b 55%, #6228d7);
+  box-shadow: 0 10px 26px rgba(238, 42, 123, 0.32), 0 4px 12px rgba(16, 42, 100, 0.08);
+  animation-delay: 0s;
+}
+
+.footer__deco--heart {
+  top: 39%;
+  right: 19%;
+  width: 30px;
+  height: 30px;
+  background: #ff5c5c;
+  box-shadow: 0 10px 26px rgba(255, 92, 92, 0.32), 0 4px 12px rgba(16, 42, 100, 0.08);
+  animation-delay: 0.8s;
+}
+
+/* straddling the curved edge — centered right on the arch boundary at
+   their x position (near the sides, where the curve is shallowest).
+   With rx: 55%, the boundary at ~3-4% from the edge sits around
+   230-250px down (vs. ~380px with the gentler rx: 75% curve). */
+.footer__deco--plane {
+  top: 60%;
+  left: 8%;
+  animation-delay: 1.4s;
+}
+
+.footer__deco--moon {
+  top: 60%;
+  right: 8%;
+  background: #1c2333;
+  animation-delay: 2.1s;
+}
+
+/* ---- Footer info ---- */
+.footer__bottom {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 46px;
+}
+
+.footer__grid {
+  display: grid;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+  justify-content: center;
+  padding-bottom: 38px;
+}
+
+.footer__col-title {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-heading);
+  margin-bottom: 14px;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__link {
+  font-size: 13px;
+  color: var(--color-body-soft);
+  transition: color var(--dur) var(--ease);
+}
+
+.footer__link:hover {
+  color: var(--color-primary);
+}
+
+.footer__col--brand {
+  text-align: center;
+}
+
+.footer__brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: var(--fw-bold);
+  color: var(--color-heading);
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer__brand-mark {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  background: var(--gradient-primary);
+  border-radius: 8px;
+}
+
+.footer__brand-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-body-soft);
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-body-soft);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.footer__contact-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-primary);
+}
+
+.footer__copy {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-body-soft);
+  padding-block: 20px;
+  border-top: 1px solid #eef1f7;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  /* .footer__deco {
+    display: none;
+  } */
+
+  /* .footer__arch {
+    height: 380px;
+  } */
+}
+
+@media (max-width: 740px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer__links {
+    align-items: center;
+  }
+
+  .footer__col--contact {
+    text-align: center;
+  }
+
+  .footer__contact-item {
+    justify-content: center;
+  }
+
+  .footer__title {
+    font-size: 28px;
+  }
+
+  .footer__arch {
+    clip-path: ellipse(56% 102% at 50% 126%);
+  }
+
+  .footer__deco--instagram,
+  .footer__deco--heart {
+    top: 29%;
+  }
+
+  .footer__deco--plane,
+  .footer__deco--moon {
+    top: 47%;
+
+  }
+}
+
+@media (max-width:580px) {
+  .footer__arch {
+    clip-path: ellipse(80% 102% at 50% 126%);
+  }
+
+  .footer__deco--instagram,
+  .footer__deco--heart {
+    top: 22%;
+  }
+
+  .footer__deco--plane,
+  .footer__deco--moon {
+    top: 30%;
+
+  }
+
+  .footer__deco--instagram,
+  .footer__deco--heart,
+  .footer__deco--plane,
+  .footer__deco--moon {
+    width: 30px;
+    height: 30px;
+  }
+}

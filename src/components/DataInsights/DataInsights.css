@@ -1,0 +1,9 @@
+.data-insights {
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  padding-top: 40px;
+}
+
+/* remove the top divider spacing since this section has no heading */
+.data-insights .features__grid--top {
+  margin-top: 0;
+}

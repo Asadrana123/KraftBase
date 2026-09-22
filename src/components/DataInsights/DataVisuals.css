@@ -1,0 +1,168 @@
+.dvisual {
+  position: relative;
+  background: linear-gradient(160deg, #f3f7ff 0%, #fafcff 100%);
+  border: 1px solid #eaf0fb;
+  border-radius: var(--radius-card);
+  min-height: 300px;
+  padding: 24px;
+}
+
+/* shared card bits */
+.dcard__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.dcard__title {
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-heading);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.3;
+}
+.dcard__sub { font-size: 11px; color: var(--color-body-soft); }
+.dcard__sub--tiny { font-size: 10px; margin-top: 10px; }
+.dcard__foot {
+  font-size: 10px;
+  color: var(--color-body-soft);
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* ---- Analytics (left) ---- */
+.dvisual--analytics {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.dcard {
+  background: #fff;
+  border: 1px solid #eef2fa;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(16, 42, 100, 0.05);
+}
+
+.dcard--chart { }
+.dcard--gauge { text-align: center; }
+.dcard--gauge .dcard__head { text-align: left; }
+.dcard--gauge .gauge { margin-inline: auto; }
+
+.dvisual__right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dvisual__add {
+  height: 60px;
+  border: 1.5px dashed #b9ccf5;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.4);
+  display: grid;
+  place-items: center;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.dvisual__add:hover {
+  background: #eef4ff;
+  border-color: var(--color-primary);
+}
+
+/* ---- Agency (right) ---- */
+.dvisual--agency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.agency-card {
+  width: 300px;
+  background: #fff;
+  border: 1px solid #eef2fa;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 44px rgba(16, 42, 100, 0.12);
+  transform: rotate(-3deg);
+  transition: transform var(--dur) var(--ease);
+}
+.agency-card:hover { transform: rotate(0deg) translateY(-4px); }
+
+.agency-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+.agency-card__stat {
+  background: #f6f9ff;
+  border: 1px solid #eaf1ff;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+.agency-card__stat-value {
+  display: block;
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--color-heading);
+}
+.agency-card__stat-label { display: block; font-size: 10px; color: var(--color-body-soft); }
+
+.enquiry-card {
+  position: absolute;
+  right: 30px;
+  bottom: 40px;
+  width: 240px;
+  background: #fff;
+  border: 1px solid #eef2fa;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 16px 36px rgba(16, 42, 100, 0.14);
+  transform: rotate(2deg);
+  transition: transform var(--dur) var(--ease);
+}
+.enquiry-card:hover { transform: rotate(0deg); }
+.enquiry-card__title {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-heading);
+  margin-bottom: 10px;
+}
+.enquiry-card__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.enquiry-card__field {
+  flex: 1;
+  font-size: 11px;
+  color: var(--color-body-soft);
+  background: #f6f9ff;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.enquiry-card__send {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: transform var(--dur) var(--ease);
+}
+.enquiry-card__send:hover { transform: translateY(-1px); }
+
+/* ---- Responsive ---- */
+@media (max-width: 560px) {
+  .dvisual--analytics { grid-template-columns: 1fr; }
+  .agency-card { width: 100%; transform: none; }
+  .enquiry-card { position: static; width: 100%; margin-top: 14px; transform: none; right: auto; bottom: auto; }
+  .dvisual--agency { flex-direction: column; }
+}

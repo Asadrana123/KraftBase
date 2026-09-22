@@ -1,0 +1,221 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #eef4ff 0%, #f8fbff 55%, #ffffff 100%);
+  padding-top: 20px;
+}
+
+.hero__glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(65,141,248,0.20), transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 90px 40px;
+}
+
+/* ---- Center content ---- */
+.hero__content {
+  position: relative;
+  z-index: 3;
+  max-width: 620px;
+  text-align: center;
+  animation: hero-rise 0.7s var(--ease) both;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: var(--color-heading);
+  font-weight: var(--fw-medium);
+}
+
+.hero__avatars { display: flex; align-items: center; }
+.hero__avatar { margin-left: -8px; }
+.hero__avatar:first-child { margin-left: 0; }
+
+.hero__avatar-count {
+  margin-left: -8px;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: #fff; font-size: 11px; font-weight: var(--fw-semibold);
+  border: 2px solid #fff;
+}
+
+/* Title — plain black + navy accent phrase with underline & cursor */
+.hero__title {
+  font-size: var(--fs-hero);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+.hero__title-accent {
+  position: relative;
+  color: #1948bd;            /* navy blue, from Figma */
+  white-space: nowrap;
+}
+
+/* hand-drawn style underline under the accent phrase */
+.hero__title-accent::after {
+  content: '';
+  position: absolute;
+  left: 6%;
+  right: 2%;
+  bottom: -6px;
+  height: 8px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='10' viewBox='0 0 300 10' fill='none'%3E%3Cpath d='M2 7C60 3 150 2 298 6' stroke='%231948BD' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+}
+
+/* blinking cursor before the accent phrase */
+.hero__cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: #1952f1;
+  margin-right: 6px;
+  vertical-align: -0.08em;
+  border-radius: 2px;
+  animation: blink 1.1s steps(2, start) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero__subtitle {
+  margin: 24px auto 0;
+  max-width: 470px;
+  font-size: var(--fs-lead);
+  color: var(--color-body);
+}
+
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.hero__proof {
+  margin-top: 24px;
+  font-size: 15px;
+  color: var(--color-body-soft);
+}
+.hero__proof strong { color: var(--color-heading); }
+
+/* ---- Floating cards — anchored near the centered text ---- */
+.hero__float {
+  position: absolute;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+.hero__float-inner { transition: transform var(--dur) var(--ease); }
+
+/* Anchor from the horizontal center of the hero, then push out just enough
+   to sit beside the ~620px text block (so no huge side gap on wide screens). */
+.hero__float--tl {
+  top: 40px;  left: 0%;   animation-delay: 0s;
+}
+.hero__float--tl .hero__float-inner { transform: rotate(-4deg); }
+
+.hero__float--bl {
+  bottom: 10px; left: 0%;  animation-delay: 1.5s;
+}
+.hero__float--bl .hero__float-inner { transform: rotate(3deg); }
+
+.hero__float--tr {
+  top: 40px;  right: 0%;   animation-delay: 0.8s;
+}
+.hero__float--tr .hero__float-inner { transform: rotate(4deg); }
+
+.hero__float--br {
+  top: 52%; right: 0%;  animation-delay: 2.2s;
+}
+.hero__float--br .hero__float-inner { transform: rotate(-3deg); }
+
+.hero__float:hover .hero__float-inner { transform: rotate(0deg) translateY(-4px); }
+
+@keyframes float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+/* ---- Bank logos strip ---- */
+.hero__logos {
+  position: relative;
+  z-index: 2;
+  padding-block: 26px 46px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  margin-top: 10px;
+}
+
+.hero__logos-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.hero__logo {
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  color: #a3adc2;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  opacity: 0.75;
+}
+.hero__logo:hover { color: var(--color-body); opacity: 1; }
+
+/* ============ Responsive ============ */
+@media (max-width: 1240px) {
+  .hero__float { scale: 0.85; }
+  .hero__float--tl { margin-left: -510px; }
+  .hero__float--bl { margin-left: -520px; }
+  .hero__float--tr { margin-right: -450px; }
+  .hero__float--br { margin-right: -450px; }
+}
+
+@media (max-width: 1080px) {
+  .hero__float { scale: 0.72; }
+  .hero__float--tl { margin-left: -460px; }
+  .hero__float--bl { margin-left: -470px; }
+  .hero__float--tr { margin-right: -410px; }
+  .hero__float--br { margin-right: -410px; }
+}
+
+/* Hide floating cards on tablet/mobile */
+@media (max-width: 992px) {
+  .hero__float { display: none; }
+  .hero__inner { min-height: auto; padding-block: 20px; }
+}
+
+@media (max-width: 640px) {
+  .hero__title-accent { white-space: normal; }
+  .hero__actions { flex-direction: column; align-items: center; }
+  .hero__actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+  .hero__eyebrow { flex-direction: column; gap: 8px; }
+  .hero__logos-track { justify-content: center; gap: 20px; }
+  .hero__logo { font-size: 13px; }
+}
